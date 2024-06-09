@@ -8,16 +8,21 @@
 <body>
     <h1>メイン画面です</h1>
 
-    <!-- <table th:each=" i : ${xxxx}">
-        <th>DPI</th>
-        <th>感度</th>
-        <th>試合数</th>
-    </table> -->
-
     <table>
-        <th>DPI</th>
-        <th>感度</th>
-        <th>試合数</th>
+        <thead>
+            <tr>
+                <th>DPI</th>
+                <th>感度</th>
+                <th>試合数</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="i : ${data}">
+                <td th:text="${i.Dpi}"></td>
+                <td th:text="${i.Sensitivity}"></td>
+                <td th:text="${i.Games}"></td>
+            </tr>
+        </tbody>
     </table>
 </body>
 </html>

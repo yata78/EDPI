@@ -11,7 +11,7 @@ create Table Users (
 create Table Edpis (
     UserId INTEGER,
     Dpi INTEGER NOT NULL,
-    Sensitivity DECIMAL(1,4) NOT NULL,
+    Sensitivity DECIMAL(5,4) NOT NULL,
     Created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	FOREIGN KEY(UserId) REFERENCES Users(UserId)
 );
