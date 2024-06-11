@@ -8,6 +8,11 @@
 <body>
     <p>ログイン画面</p>
     <form th:action="login" method="post">
+        <label for="">名前</label>
+            <input type="text" name="userName">
+        
+        <label for="">パスワード</label>
+            <input type="password" id="userPassword">
         <button>ログイン</button>
     </form>
 </body>
