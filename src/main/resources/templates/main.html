@@ -8,8 +8,9 @@
 <body>
     <h1>メイン画面です</h1>
 
-
-    <p th:text="${message}"></p>
+    <form th:action="edpi" method="get">
+        <button>EDPI登録</button>
+    </form>
 
     <table>
         <thead>
@@ -22,10 +23,12 @@
         <tbody>
             <tr th:each="i : ${data}">
                 <td th:text="${i.Dpi}"></td>
-                <td th:text="${i.Sensitivity}"></td>
+                    <td th:text="${i.Sensitivity}"></td>
                 <td th:text=0></td>
             </tr>
         </tbody>
     </table>
+
+    
 </body>
 </html>
