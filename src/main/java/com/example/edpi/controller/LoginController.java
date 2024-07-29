@@ -12,7 +12,15 @@ public class LoginController {
 
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public ModelAndView requestMethodName(ModelAndView mav) {
+        mav.setViewName("login");
         return mav;
     }
+
+    @RequestMapping( value = "/", method=RequestMethod.POST)
+    public ModelAndView requestMethodName(ModelAndView mav, @RequestParam("loginId") String id, @RequestParam("password") String password) {
+        mav.setViewName("index");
+        return mav;
+    }
+    
     
 }
