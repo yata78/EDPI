@@ -19,6 +19,10 @@ public class LoginController {
     @RequestMapping( value = "/", method=RequestMethod.POST)
     public ModelAndView requestMethodName(ModelAndView mav, @RequestParam("loginId") String id, @RequestParam("password") String password) {
         mav.setViewName("index");
+        /*
+         * データベースからデータを取得して、どのedpiが合っているかを表示
+         * mav.setattribute();
+         */
         return mav;
     }
     
