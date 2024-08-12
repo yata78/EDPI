@@ -26,14 +26,16 @@ public class LoginController {
     @RequestMapping( value = "/", method=RequestMethod.POST)
     public ModelAndView requestMethodName(ModelAndView mav, @RequestParam("loginId") Integer id, @RequestParam("password") String password) {
         
-        MUser muser = loginRepository.findById(id).get();
-        if(password.equals(muser.getPass())) {
+        //vaidateResultを使用したい。entityを使用できる?(createdとupdatedがどうなるか)
+        //そもそも日付のカラムは使用しないので無くしてもよい(慣習だと思って入れただけ)
+        MUser mUser = loginRepository.findById(id).get();
+        if(password.equals(mUser.getPass())) {
+            //TODO : mav.addAttribute(mUser, mUser)
             mav.setViewName("index");
         } else {
             mav.setViewName("redirect:/");
         }     
         return mav;
     }
-    
-    
+        
 }
