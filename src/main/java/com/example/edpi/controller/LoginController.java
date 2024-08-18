@@ -18,23 +18,25 @@ public class LoginController {
     LoginRepository loginRepository;
 
     @RequestMapping(value = "/", method=RequestMethod.GET)
-    public ModelAndView requestMethodName(ModelAndView mav) {
+    public ModelAndView requestMethodName(ModelAndView mav, MUser muser) {
         mav.setViewName("login");
+        mav.addObject("muser", muser);
         return mav;
     }
 
     @RequestMapping( value = "/", method=RequestMethod.POST)
-    public ModelAndView requestMethodName(ModelAndView mav, @RequestParam("loginId") Integer id, @RequestParam("password") String password) {
+    public ModelAndView requestMethodName(ModelAndView mav) {
         
         //vaidateResultを使用したい。entityを使用できる?(createdとupdatedがどうなるか)
         //そもそも日付のカラムは使用しないので無くしてもよい(慣習だと思って入れただけ)
-        MUser mUser = loginRepository.findById(id).get();
-        if(password.equals(mUser.getPass())) {
-            //TODO : mav.addAttribute(mUser, mUser)
-            mav.setViewName("index");
-        } else {
-            mav.setViewName("redirect:/");
-        }     
+        // MUser mUser = (MUser)loginRepository.findById(id).get();
+        // if(password.equals(mUser.getPass())) {
+        //     //TODO : mav.addAttribute(mUser, mUser)
+        //     mav.setViewName("index");
+        // } else {
+        //     mav.setViewName("redirect:/");
+        // }     
+        mav.setViewName("redirect:/");
         return mav;
     }
         
