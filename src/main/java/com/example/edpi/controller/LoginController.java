@@ -35,8 +35,9 @@ public class LoginController {
         //     mav.setViewName("index");
         // } else {
         //     mav.setViewName("redirect:/");
-        // }     
-        mav.setViewName("redirect:/");
+        // }
+        mav.setViewName("login");
+        mav.addObject("test", "送信後");
         return mav;
     }
         
