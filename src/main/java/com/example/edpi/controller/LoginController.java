@@ -2,12 +2,14 @@ package com.example.edpi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.edpi.Entity.MUser;
+import com.example.edpi.Entity.MUserDto;
 import com.example.edpi.repository.LoginRepository;
 
 
@@ -25,7 +27,7 @@ public class LoginController {
     }
 
     @RequestMapping( value = "/", method=RequestMethod.POST)
-    public ModelAndView requestMethodName(ModelAndView mav, @RequestParam("loginId") String loginId) {
+    public ModelAndView requestMethodName(ModelAndView mav, @ModelAttribute("MUserDto") MUserDto muserdto) {
         
         //vaidateResultを使用したい。entityを使用できる?(createdとupdatedがどうなるか)
         //そもそも日付のカラムは使用しないので無くしてもよい(慣習だと思って入れただけ)
@@ -37,7 +39,7 @@ public class LoginController {
         //     mav.setViewName("redirect:/");
         // }
         mav.setViewName("login");
-        mav.addObject("loginId", loginId);
+        mav.addObject("user", muserdto);
         return mav;
     }
         

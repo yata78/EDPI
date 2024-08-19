@@ -15,7 +15,7 @@
     
     <h2>your AIM</h2>
 
-    <form action="/" method="post">
+    <form action="/" method="post" th:object="${form}">
         <div class="loginId">
             <label for="">ログインID</label>
             <input name="loginId" type="text" placeholder="ID">
@@ -30,7 +30,7 @@
     </form>
 
     <div>
-        <p th:text="${loginId}"></p>
+        <p th:text="${user.userId}"></p>
     </div>
 
     <script
