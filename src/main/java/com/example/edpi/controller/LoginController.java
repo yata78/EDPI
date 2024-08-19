@@ -25,7 +25,7 @@ public class LoginController {
     }
 
     @RequestMapping( value = "/", method=RequestMethod.POST)
-    public ModelAndView requestMethodName(ModelAndView mav) {
+    public ModelAndView requestMethodName(ModelAndView mav, @RequestParam("loginId") String loginId) {
         
         //vaidateResultを使用したい。entityを使用できる?(createdとupdatedがどうなるか)
         //そもそも日付のカラムは使用しないので無くしてもよい(慣習だと思って入れただけ)
@@ -37,7 +37,7 @@ public class LoginController {
         //     mav.setViewName("redirect:/");
         // }
         mav.setViewName("login");
-        mav.addObject("test", "送信後");
+        mav.addObject("loginId", loginId);
         return mav;
     }
         
