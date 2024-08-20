@@ -27,7 +27,7 @@ public class LoginController {
     }
 
     @RequestMapping( value = "/", method=RequestMethod.POST)
-    public ModelAndView requestMethodName(ModelAndView mav, @ModelAttribute("MUserDto") MUserDto muserdto) {
+    public ModelAndView requestMethodName(ModelAndView mav, @ModelAttribute("MUserDto") MUserDto muserdto, @ModelAttribute("userId") String userId, @ModelAttribute("pass") String pass) {
         
         //vaidateResultを使用したい。entityを使用できる?(createdとupdatedがどうなるか)
         //そもそも日付のカラムは使用しないので無くしてもよい(慣習だと思って入れただけ)
@@ -38,8 +38,11 @@ public class LoginController {
         // } else {
         //     mav.setViewName("redirect:/");
         // }
+        muserdto.setUserId(userId);
+        muserdto.setPass(pass);
         mav.setViewName("login");
-        mav.addObject("user", muserdto);
+        mav.addObject("id", muserdto);
+        mav.addObject("pass", muserdto.getPass());
         return mav;
     }
         
